@@ -9,14 +9,16 @@ void my_memcpy(void* dest, void* src, size_t n) {
     const char* s = (char*)src;
 }
 
-char* my_strdup(const char* str) {
+char* my_strdup(char const* const str) {
     size_t num = strlen(str);
-    char* sum = (char*)malloc(num + 1);
-    if (sum) {
-        my_memcpy(sum, (void*)str, num);
-        sum[num] = '\0';
+    
+    char* dupstr = (char*)malloc(num + 1);
+    if (dupstr) {
+        my_memcpy(dupstr, (char*)str, num);
+        //memcpy(dupstr, str, num);
+        dupstr[num] = '\0';
     }
-        return sum;
+        return dupstr;
 }
 
 int my_strlen(const char* str)
@@ -29,6 +31,9 @@ int my_strlen(const char* str)
     num= (sizeof(*str)*i);
     return num;
 }
+
+int (*fptr)(int);
+
 
 char* my_strcat(char* dest, char* src) {
     char* original_dest;
@@ -63,13 +68,19 @@ int main() {
     char test1[] = "test1";
     char test2[10] = "test2";
 
+    char* strA = (char*)"12345678";
     //cout << strlen(test1) << endl;
     //cout << sizeof(test1) << ", " << sizeof(test2) << endl;
     //cout <<my_strcat(owo,ouo);
     //cout << sizeof(int*) << endl;
     //cout << my_strlen(owo)<<endl<<endl;
 
-    cout << my_strcat(owo, ouo)<<endl;
+    char* str = my_strcat(owo, ouo);
+
+    cout << str << endl;
+    free(str);
+
+
 
     cout << string(owo) + string(ouo) << endl;
     return 0;
