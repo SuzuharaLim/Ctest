@@ -18,5 +18,13 @@
     <ClCompile Include="memcpy.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
+    <ClCompile Include="my_string.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="my_string.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
